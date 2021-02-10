@@ -7,6 +7,13 @@
 
 <head>
   <style>
+/*dieser Selector bildet den Container in dem das Overlay nachher wiedergegeben wird*/
+  .container {
+    position: relative;
+    width: 100%;
+/*width 100% sorgt dafür das der Container in dass das Bild "gestopft" wird, auch so groß ist wie das Bild*/
+  }
+
   .footer {
     position: static;
     left: 0;
@@ -15,6 +22,38 @@
     background-color: #e6e6e6;
     color: black;
   }
+
+/*dieser Selector erstellt das eigentliche Overlay, height und width 100% sorgen dafür dass es das Bild ausfüllt*/
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+  }
+
+/*hier wird dem Container selector eine animation zugewiesen :hover animation zugewiesen, dazu wird als animation der .overlay selector gewählt*/
+  .container:hover .overlay {
+    opacity: 0.5;
+  }
+
+/*hier wird ein selector erstellt der dafür zuständig ist wo der text in welchem Stil angezeigt wird*/
+  .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
 </style>
 </head>
 
@@ -48,7 +87,12 @@
 <div class="w3-content w3-padding-large w3-margin-top" id="portfolio">
 
   <!-- Portfolio Bilder -->
-  <img src="https://i.imgur.com/AkM9SEc.jpg" alt="Olsberg Winterberg" class="w3-image" width="1000" height="500">
+<div class="container">
+ <img src="https://i.imgur.com/AkM9SEc.jpg" alt="Olsberg Winterberg" class="w3-image" width="1000" height="500">
+  <div class="overlay">
+    <div class="text">Olsberg / Winterberg, Oktober 2020</div>
+  </div>
+</div>
   <img src="https://i.imgur.com/OmNuepy.jpg" alt="Kranenburg" class="w3-image w3-margin-top" width="1000" height="500">
   <img src="https://i.imgur.com/EeWNowy.jpg" alt="Kranenburg" class="w3-image w3-margin-top" width="1000" height="500">
   <!--<img src="https://i.imgur.com/GYRK2gL.png" alt="henkel" class="w3-image w3-margin-top" width="1000" height="500"> -->
@@ -74,8 +118,6 @@
       </div>
       <a href="https://xadrus1799.github.io/portfolio/test" class="w3-button w3-block w3-dark-grey">Kontakt</a>
     </form><br>
-
-
   </div>
 </div>
 
